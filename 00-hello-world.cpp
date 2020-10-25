@@ -1,10 +1,9 @@
-
 #include <iostream>
-
-int imie = "Wojtek";
+using namespace std;
 
 auto main() -> int
 {
-    std::cout << "Hello," << imie"\n";
+    string imie = "Wojtek";
+    cout << "Hello " << imie;
     return 0;
 }
