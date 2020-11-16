@@ -1,5 +1,5 @@
-# include <iostream>
-# include <string>
+#include <iostream>
+#include <string>
 
 auto ask_user_for_integer(std::string prompt) -> int
 {

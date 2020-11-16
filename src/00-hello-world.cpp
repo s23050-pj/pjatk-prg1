@@ -1,9 +1,8 @@
 #include <iostream>
-using namespace std;
 
 auto main() -> int
 {
-    string imie = "Wojtek";
-    cout << "Hello " << imie;
+    auto imie = std::string{"Wojtek"};
+    std::cout << "Hello " << imie << std::endl;
     return 0;
 }
