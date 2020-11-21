@@ -1,12 +1,13 @@
 #include <iostream>
 #include <string>
 
-auto main() -> int
+auto main(int argc, char* argv[]) -> int
 {
-    for (int i = 99; i > 0; --i)
+    auto liczba = std::stoi(argv[1]);
+    for (liczba; liczba > 0; --liczba)
     {
-        std::cout << i << "bottles of beer on the wall, ";
-        std::cout << i << "bottles of beer.\nTake one down, pass it around, " << std::endl;
+        std::cout << liczba << "bottles of beer on the wall, ";
+        std::cout << liczba << "bottles of beer.\nTake one down, pass it around, " << std::endl;
     }
     std::cout << "No more bottles of beer on the wall, " << std::endl << "no more bottles of beer. Go to the store and buy some more";
 
