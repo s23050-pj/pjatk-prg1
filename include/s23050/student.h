@@ -13,7 +13,10 @@ namespace s23050 {
 
         Student(std::string);
 
-        auto to_string()const -> std::string; //f.skladowa
+        Student(std::string n, std::string sn,
+        unsigned int idx, unsigned int vt, float gp);
+
+        auto to_string() const -> std::string; //f.skladowa
     };
 }
 
