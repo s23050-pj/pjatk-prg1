@@ -1,103 +1,103 @@
-#include <s23050/Time.h>
+﻿#include <23050/student.h>
 #include <sstream>
 #include <iostream>
 
-s23050::Time::Time(int h, int m, int s)
-    : hour {std::move(h)}
-    , minute {std::move(m)}
-    , second {std::move(s)}
-{}
-s23050::Time_day::Time_day(std::string const m, std::string const d, std::string const e, std::string const n)
-    : morning {std::move(m)}
-    , day {std::move(d)}
-    , evening {std::move(e)}
-    , night {std::move(n)}
+
+s23050::Time::Time(size_t h, size_t m, size_t s)
+    : hour{ std::move(h) },
+    minute{ std::move(m) },
+    second{ std::move(s) }
 {}
 
-auto s23050::Time::to_string() const -> std::string
+
+auto s23050::Time::to_string() -> void
 {
-    auto out= std::ostringstream{};
-    out << hour << ":" << minute << ":" << second;
-    return out.str();
+    while(hour<60)
+    {
+        system("cls");
+        next_second(); 
+        if (hour < 10) {
+            std::cout << "0";
+        }
+            std::cout << hour << ":";
+        if (minute < 10) {
+            std::cout << "0";
+        } 
+            std::cout << minute << ":";
+
+        if (second < 10) {
+            std::cout << "0";
+        }
+            std::cout << second << std::endl;
+        time_of_day();
+       
+    }
 }
-auto s23050::Time::next_hour() const -> void
+
+
+auto s23050::Time::next_hour() -> void
 {
     ++hour;
-    if(hour > 23)
-    {
-        hour = 00;
+    if (hour > 23) {
+        hour = 0;
+        next_second();
     }
-    time.next_hour();
-    auto out= std::ostringstream{};
-    out << hour << ":" << minute << ":" << second;
-    return out.str();
+   
+   
 }
-auto s23050::Time::next_minute() const -> void
+
+auto s23050::Time::next_minute() -> void
 {
     ++minute;
-    if(minute > 59)
-    {
-        minute = 00;
-        hour = 00;
+    if (minute > 59) {
+        minute = 0;
+        next_hour();
     }
-    time.next_minute();
-    auto out= std::ostringstream{};
-    out << hour << ":" << minute << ":" << second;
-    return out.str();
+   
 }
-auto s23050::Time::next_second() const -> void
+
+auto s23050::Time::next_second() -> void
 {
     ++second;
-    if(second > 59)
-    {
-        second = 00;
-        minute = 00;
-        hour = 00;
+    if (second > 60) {
+        second = 0;
+        next_minute();
+  
     }
-    time.next_second();
-    auto out= std::ostringstream{};
-    out << hour << ":" << minute << ":" << second;
-    return out.str();
+ 
 }
 
-auto s23050::Time::time_of_day() -> std::string
+auto s23050::Time::time_of_day() -> void
 {
-    if(hour < 10 && hour > 5)
-    {
-        auto out = std::ostringstream{};
-        out << morning;
-      
-    }
-    else if(hour < 18 && hour > 10)
-    {
-        auto out = std::ostringstream{};
-        out << day;
-    }
-    else if(hour < 21 && hour > 18)
-    {
-        auto out = std::ostringstream{};
-        out << evening;
-    }
-    else if(hour < 5 && hour > 21)
-    {
-        auto out = std::ostringstream{};
-        out << night;
-    }
-
-    return out.str();
-}
-auto s23050::Time::to_string_1() const -> std::string
-{
-    auto out= std::ostringstream{};
-    out << Time.Time_of_day;
-    return out.str();
-}
-
-auto main() ->int
-{
-    auto time = s23050::Time{ 23, 59, 59 };
-    std::cout << Time.to_string() << "\n";
-    std::cout << s23050::to_string1(Time.Time_of_day()) << "\n";
-    return 0;
     
+    if (hour < 10 && hour >= 5) {
+       
+        std::cout << "morning";
+    
+
+    }
+    else if (hour < 18 && hour>=10) {
+       
+        std::cout << "The day";
+       
+    }
+    else if (hour < 21 && hour>=18) {
+      
+        std::cout << "evening";
+        
+    }
+    else if (hour < 5 || hour>=21) {
+      
+        std::cout << "night";
+        
+    }
+   
+}
+
+
+auto main() -> int
+{
+    s23050::Time time; 
+    time.to_string();
+    return 0;
 }

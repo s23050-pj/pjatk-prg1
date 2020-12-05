@@ -1,39 +1,45 @@
-#ifndef s23050_TIME_H
-#define s23050_TIME_H
+#ifndef S23050_STUDENT_H
+#define S23050_STUDENT_H
 #include <string>
 
 namespace s23050 {
 
-    struct Time 
-    {
+    struct Time {
+
         unsigned int hour;
         unsigned int minute;
         unsigned int second;
-        constexpr static size_t max_hour{23};
-        constexpr static size_t max_minute{59};
-        constexpr static size_t max_second{59};
-        Time(std::string, size_t = max_hour, size_t = max_minute, size_t = max_second);
+        constexpr static size_t max_hour{ 23 };
+        constexpr static size_t max_minute{ 59 };
+        constexpr static size_t max_second{ 59 };
 
-        auto to_string() const -> std::string;
+        Time(std::string);
+        Time(size_t = max_hour, size_t = max_minute, size_t = max_second);
+
+
         auto next_hour() -> void;
         auto next_minute() -> void;
         auto next_second() -> void;
 
-        enum class Time_of_day
+        auto time_of_day()->void;
+
+        //pora dnia
+        enum class Time_of_day 
         {
-        public:
+        
+               morning =5,
+               day =  10,
+               evening = 18,
+               night = 21,
 
-        std::string const morning = {"morning"}
-        std::string const day = {"day"}
-        std::string const evening = {"evening"}
-        std::string const night = {"night"}
         };
+        
 
-        Time_of_day(std::string);
-        auto to_string_1() const -> std::string;
-        auto time_of_day() const -> std::string;
+       //Time_of_day();
+       auto to_string() -> void;
 
     };
 }
+
 
 #endif
