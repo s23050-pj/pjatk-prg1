@@ -1,0 +1,11 @@
+﻿  kulka.cpp
+D:\Kuleczka\kulka\kulka\kulka.cpp(120,44): warning C4305: "argument": obcięcie z "double" do "T"
+          with
+          [
+              T=float
+          ]
+D:\Kuleczka\kulka\kulka\kulka.cpp(151,37): warning C4305: "argument": obcięcie z "double" do "float"
+D:\Kuleczka\kulka\kulka\kulka.cpp(154,36): warning C4305: "argument": obcięcie z "double" do "float"
+D:\Kuleczka\kulka\kulka\kulka.cpp(157,38): warning C4305: "argument": obcięcie z "double" do "float"
+D:\Kuleczka\kulka\kulka\kulka.cpp(160,37): warning C4305: "argument": obcięcie z "double" do "float"
+  kulka.vcxproj -> D:\Kuleczka\kulka\Debug\kulka.exe
